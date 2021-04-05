@@ -4,7 +4,9 @@
 #include <Arduino.h>
 
 // Source: https://playground.arduino.cc/Main/I2cScanner/
-
+/**
+ * Scans pins for I2C devices connected
+ * */
 void scanI2C() {
   byte error, address;
   int nDevices;
@@ -15,7 +17,7 @@ void scanI2C() {
   for (address = 1; address < 127; address++) {
     // The i2c_scanner uses the return value of
     // the Write.endTransmisstion to see if
-    // a device did acknowledge to the address.
+    // a device did send acknowledge bits to the address.
     Wire.beginTransmission(address);
     error = Wire.endTransmission();
 
